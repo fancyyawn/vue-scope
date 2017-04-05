@@ -70,7 +70,7 @@
 <script>
 	import NProgress from 'nprogress'
 	import util from '../../common/util'
-	import api from '../../api';
+	import UsersApi from '../../api/users';
 
 
 	export default {
@@ -121,7 +121,7 @@
 				};
 				// this.listLoading = true;
 				NProgress.start();
-				api.getUserListPage(para).then((res) => {
+        UsersApi.getUserListPage(para).then((res) => {
 					this.total = res.data.total;
 					this.users = res.data.users;
 					// this.listLoading = false;
@@ -138,7 +138,7 @@
 					_this.listLoading = true;
 					NProgress.start();
 					let para = { id: row.id };
-					api.removeUser(para).then((res) => {
+					UsersApi.removeUser(para).then((res) => {
 						_this.listLoading = false;
 						NProgress.done();
 						_this.$notify({
@@ -185,7 +185,7 @@
 									birth: _this.editForm.birth == '' ? '' : util.formatDate.format(new Date(_this.editForm.birth), 'yyyy-MM-dd'),
 									addr: _this.editForm.addr,
 								};
-								api.addUser(para).then((res) => {
+                UsersApi.addUser(para).then((res) => {
 									// _this.editLoading = false;
 									NProgress.done();
 									_this.btnEditText = '提 交';
@@ -207,7 +207,7 @@
 									birth: _this.editForm.birth == '' ? '' : util.formatDate.format(new Date(_this.editForm.birth), 'yyyy-MM-dd'),
 									addr: _this.editForm.addr,
 								};
-								api.editUser(para).then((res) => {
+                UsersApi.editUser(para).then((res) => {
 									// _this.editLoading = false;
 									NProgress.done();
 									_this.btnEditText = '提 交';

@@ -7,7 +7,7 @@
       <el-col :span="4" class="rightbar">
         <el-dropdown trigger="click"  @command="handleMenuCommand">
           <span class="el-dropdown-link" style="color:#c0ccda;cursor: pointer;">
-              <img src="../assets/user1.png" class="head"> Wency
+              <img src="../assets/user1.png" class="head"> zhacker
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>我的消息</el-dropdown-item>

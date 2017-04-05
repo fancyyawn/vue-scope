@@ -17,7 +17,7 @@
 
 <script>
   /* eslint-disable */
-  import api from '../api';
+  import UsersApi from '../api/users';
   export default {
     data() {
       return {
@@ -50,7 +50,7 @@
             //_this.$router.replace('/table');
             this.logining = true;
             var loginParams = { username: this.loginForm.account, password: this.loginForm.checkPass };
-            api.requestLogin(loginParams).then(data => {
+            UsersApi.requestLogin(loginParams).then(data => {
               this.logining = false;
               let { msg, code, user } = data;
               if (code !== 200) {
